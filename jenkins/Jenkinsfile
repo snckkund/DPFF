@@ -1,0 +1,50 @@
+pipeline {
+  agent any
+  environment {
+    BUILD_ID = "${GIT_COMMIT}-${BUILD_NUMBER}"
+    REGISTRY = 'harbor.local'
+  }
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+        sh 'echo "Commit: ${GIT_COMMIT}" > build_metadata.txt'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh '''
+          docker build \
+            --label "build.id=${BUILD_ID}" \
+            --label "git.commit=${GIT_COMMIT}" \
+            -t ${REGISTRY}/myapp:${BUILD_ID} .
+        '''
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'docker run ${REGISTRY}/myapp:${BUILD_ID} npm test'
+      }
+    }
+    stage('Scan') {
+      steps {
+        sh '''
+          trivy image --severity HIGH,CRITICAL \
+            --format json -o scan-${BUILD_ID}.json \
+            ${REGISTRY}/myapp:${BUILD_ID}
+        '''
+      }
+    }
+    stage('Push') {
+      steps {
+        sh 'docker push ${REGISTRY}/myapp:${BUILD_ID}'
+      }
+    }
+  }
+  post {
+    always {
+      sh 'docker system prune -f'
+      archiveArtifacts artifacts: '*.json,*.txt', allowEmptyArchive: true
+    }
+  }
+}

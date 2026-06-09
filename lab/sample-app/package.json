@@ -1,0 +1,11 @@
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app for DPFF attack lab",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0"
+  },
+  "dependencies": {}
+}

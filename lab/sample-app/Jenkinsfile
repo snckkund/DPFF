@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    environment {
+        REGISTRY = 'localhost:5000'
+        IMAGE    = "${REGISTRY}/dpff-sample-app"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "docker build -t ${IMAGE}:${BUILD_NUMBER} ."
+            }
+        }
+        stage('Test') {
+            steps {
+                sh "npm test"
+            }
+        }
+        stage('Push') {
+            steps {
+                sh "docker push ${IMAGE}:${BUILD_NUMBER}"
+            }
+        }
+    }
+}

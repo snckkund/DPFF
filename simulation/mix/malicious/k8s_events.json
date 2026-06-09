@@ -1,0 +1,22 @@
+[
+    {
+        "timestamp": "2026-02-05T16:35:00Z",
+        "reason": "Created",
+        "message": "Created pod: malicious-pod",
+        "object": {
+            "kind": "Pod",
+            "name": "malicious-pod",
+            "spec": {
+                "containers": [
+                    {
+                        "name": "main",
+                        "image": "myapp:latest",
+                        "securityContext": {
+                            "privileged": true
+                        }
+                    }
+                ]
+            }
+        }
+    }
+]

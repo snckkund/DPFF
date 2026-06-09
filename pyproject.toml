@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "dpff"
+version = "1.0.0"
+description = "DevSecOps Pipeline Forensics Framework — automated CI/CD incident detection and investigation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "DPFF Team"},
+]
+keywords = ["devsecops", "forensics", "cicd", "security", "pipeline", "mitre"]
+
+dependencies = [
+    "requests>=2.28,<3",
+    "pyyaml>=6.0,<7",
+    "python-dotenv>=1.0,<2",
+    "streamlit>=1.20",
+    "kubernetes>=26.1,<30",
+    "docker>=6.1,<8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+dpff = "src.main:main"
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

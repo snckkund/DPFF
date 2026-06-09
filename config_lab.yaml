@@ -1,0 +1,33 @@
+# DPFF Lab Configuration
+# Points to local Docker Compose services (Gitea + Jenkins + Docker Registry)
+# Start with: cd lab && docker compose up -d
+
+collector_settings:
+  github:
+    enabled: true
+    org: "dpff-lab"
+    base_url: "http://localhost:3000"
+    # Token loaded from GITHUB_TOKEN env var (set in lab/.env.lab)
+
+  jenkins:
+    enabled: true
+    url: "http://localhost:9090"
+    # Credentials: set JENKINS_USER and JENKINS_TOKEN env vars
+
+  harbor:
+    enabled: false
+    url: "http://localhost:5000"
+    # Using Docker Registry instead of Harbor for the lab
+
+  kubernetes:
+    enabled: false
+    # Enable if you have minikube/kind running
+
+  docker:
+    enabled: true
+    # Uses local Docker socket — will detect privileged containers
+
+analysis_settings:
+  lookback_days: 1
+  report_format: "html"
+  report_path: "lab/reports/lab_report.html"

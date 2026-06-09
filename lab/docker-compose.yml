@@ -1,0 +1,56 @@
+version: '3.8'
+
+# DPFF Attack Lab — Local CI/CD Pipeline for Security Testing
+# Usage: docker compose up -d
+
+services:
+  # ── Git Server (GitHub-compatible API) ────────────────────────
+  gitea:
+    image: gitea/gitea:latest
+    container_name: dpff-gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__server__ROOT_URL=http://localhost:3000/
+      - GITEA__server__HTTP_PORT=3000
+      - GITEA__database__DB_TYPE=sqlite3
+      - GITEA__service__DISABLE_REGISTRATION=false
+      - GITEA__api__ENABLE_SWAGGER=true
+    volumes:
+      - gitea_data:/data
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  # ── CI Server ─────────────────────────────────────────────────
+  jenkins:
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    container_name: dpff-jenkins
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "9090:8080"
+    restart: unless-stopped
+    depends_on:
+      - gitea
+      - registry
+
+  # ── Docker Registry (Harbor substitute) ───────────────────────
+  registry:
+    image: registry:2
+    container_name: dpff-registry
+    ports:
+      - "5000:5000"
+    volumes:
+      - registry_data:/var/lib/registry
+    restart: unless-stopped
+
+volumes:
+  gitea_data:
+  jenkins_data:
+  registry_data:

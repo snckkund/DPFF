@@ -1,0 +1,28 @@
+collector_settings:
+  github:
+    enabled: true
+    org: "my-org"
+    # Token from ENV: GITHUB_TOKEN
+
+  jenkins:
+    enabled: true
+    url: "http://jenkins.local:8080"
+    # Credentials from ENV: JENKINS_USER, JENKINS_TOKEN
+
+  harbor:
+    enabled: true
+    url: "https://harbor.local"
+    # Credentials from ENV: HARBOR_USER, HARBOR_PASS
+
+  kubernetes:
+    enabled: true
+    # Uses ~/.kube/config or ServiceAccount
+
+  docker:
+    enabled: true
+    # Uses local docker socket by default
+
+analysis_settings:
+  lookback_days: 7
+  report_format: "html"
+  report_path: "forensic_report.html"

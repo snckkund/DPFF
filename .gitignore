@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+*.manifest
+*.spec.bak
+build/
+*.egg
+
+# Environment
+.env
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# DPFF generated outputs
+forensic_report.html
+forensic_timeline.html
+forensic_export.json
+forensic_export_stix.json
+logs/
+data/
+
+# Node (legacy)
+node_modules/
+
+# Pytest
+.pytest_cache/
+htmlcov/
+.coverage
+
+docs/
+DPFF_Technical_Plan.docx

@@ -1,0 +1,34 @@
+[
+    {
+        "op_time": "1738768000",
+        "operation": "push",
+        "resource": "library/myapp:build-101",
+        "resource_type": "image",
+        "username": "jenkins-ci",
+        "digest": "sha256:abcd..."
+    },
+    {
+        "op_time": "1738768010",
+        "operation": "pull",
+        "resource": "library/myapp:build-101",
+        "resource_type": "image",
+        "username": "attacker",
+        "digest": "sha256:abcd..."
+    },
+    {
+        "op_time": "1738768100",
+        "operation": "push",
+        "resource": "library/myapp:build-101",
+        "resource_type": "image",
+        "username": "attacker",
+        "digest": "sha256:bad1..."
+    },
+    {
+        "op_time": "1738768120",
+        "operation": "pull",
+        "resource": "library/myapp:build-101",
+        "resource_type": "image",
+        "username": "kubernetes-deployer",
+        "digest": "sha256:bad1..."
+    }
+]
